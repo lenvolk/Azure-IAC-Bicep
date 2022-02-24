@@ -6,7 +6,7 @@ Add-AzAccount
 Get-AzSubscription -SubscriptionName "MSDN-SUB" | Select-AzSubscription
 
 # For Azure global regions
-New-AzTenantDeployment -TemplateFile .\caf-mg-deploy.bicep -TemplateParameterFile .\parameters.json -Location eastus2
+New-AzTenantDeployment -TemplateFile .\caf-mg-deploy.bicep -TemplateParameterFile .\volk_parameters.json -Location eastus2
 
 
 ### Clean-UP
