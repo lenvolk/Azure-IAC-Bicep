@@ -10,7 +10,11 @@ New-AzTenantDeployment -TemplateFile .\caf-mg-deploy.bicep -TemplateParameterFil
 
 
 ### Clean-UP
-Remove-AzManagementGroupSubscription -GroupId 'alz' -SubscriptionId 'c6aa1fdc-66a8-446e-8b37-7794cd545e44'
+$rgfilter = 'my-caf-vnet'
+$rg2delete = Get-AzResourceGroup | ? ResourceGroupName -match $rgfilter | Select-Object ResourceGroupName
+$rg2delete | Remove-AzResourceGroup -AsJob -Force
+
+Remove-AzManagementGroupSubscription -GroupId 'volk-connectivity' -SubscriptionId '77950549-89f8-47fa-bf94-49cba3c855f0'
 
 
 function remove-recursively($name) {
@@ -34,6 +38,6 @@ function remove-recursively($name) {
   Remove-AzManagementGroup -InputObject $parent
 }
 
-remove-recursively -name 'alz'
+remove-recursively -name 'volk-sandbox'
 
 disconnect-azaccount 
