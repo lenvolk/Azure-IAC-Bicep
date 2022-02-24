@@ -1,4 +1,4 @@
 *.json
 Test-Functions/*
 *.zip
-**/parameters.json
+**/volk_parameters.json
