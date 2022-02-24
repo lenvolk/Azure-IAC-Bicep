@@ -1,11 +1,12 @@
 New-AzRoleAssignment -SignInName "lv@volk.com" -Scope "/" -RoleDefinitionName "Owner"
 
+# authenticate to the portal
 Add-AzAccount
 #Select the correct subscription
 Get-AzSubscription -SubscriptionName "MSDN-SUB" | Select-AzSubscription
 
 # For Azure global regions
-az deployment tenant create --template-file .\caf-mg-deploy.bicep --name mg-test -l eastus --parameters .\parameters.json
+New-AzTenantDeployment -TemplateFile .\caf-mg-deploy.bicep -TemplateParameterFile .\parameters.json -Location eastus2
 
 
 ### Clean-UP
@@ -34,3 +35,5 @@ function remove-recursively($name) {
 }
 
 remove-recursively -name 'alz'
+
+disconnect-azaccount 
