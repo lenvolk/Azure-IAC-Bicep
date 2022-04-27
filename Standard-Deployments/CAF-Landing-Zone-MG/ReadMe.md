@@ -1,5 +1,5 @@
 # What does this module do?
-Creates Management Group Hierarchy per [CAF Guidance]("https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-management-groups"). 
+Creates Management Group Hierarchy per [CAF Guidance](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-management-groups). 
 
 # What does this module Require?
 Must be deployed by a user that has rights to do deployments at the Tenant Level.  To use RBAC Assignments, you must have the Repo downloaded because it's dependant on my roleAssignments-mg.bicep file.
@@ -57,7 +57,7 @@ policyAssignments Object =
 Example of virtualNetworks object:
 ```
 {
-    name: 'vnet name prefix, example: name: 'prod' and region was eastus would deploy a vnet named 'prod-eastus-vnet'
+    name: 'vnet name'
     subId: 'Subscription ID that VNET will be deployed in'
     vnetAddressSpace: 'Cider range for VNET Example: 10.0.0.0/22'
     dnsServers: [] Arrary of DNS Servers. Example: ['10.2.0.2','192.168.1.1']
