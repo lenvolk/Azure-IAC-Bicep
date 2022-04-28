@@ -1,4 +1,4 @@
-New-AzRoleAssignment -SignInName "lv@volk.com" -Scope "/" -RoleDefinitionName "Owner"
+New-AzRoleAssignment -SignInName "lv@lvolk.com" -Scope "/" -RoleDefinitionName "Owner"
 
 # authenticate to the portal
 Add-AzAccount
@@ -6,6 +6,8 @@ Add-AzAccount
 Get-AzSubscription -SubscriptionName "MSDN-SUB" | Select-AzSubscription
 
 # For Azure global regions
+cd C:\Bicep\Azure-IAC-Bicep\Standard-Deployments\CAF-Landing-Zone-MG\
+dir
 New-AzTenantDeployment -TemplateFile .\caf-mg-deploy.bicep -TemplateParameterFile .\volk_parameters.json -Location eastus2
 
 
@@ -14,6 +16,7 @@ $rgfilter = 'my-caf-vnet'
 $rg2delete = Get-AzResourceGroup | ? ResourceGroupName -match $rgfilter | Select-Object ResourceGroupName
 $rg2delete | Remove-AzResourceGroup -AsJob -Force
 
+# to remove subscription from managment group
 Remove-AzManagementGroupSubscription -GroupId 'volk-connectivity' -SubscriptionId '77950549-89f8-47fa-bf94-49cba3c855f0'
 
 
