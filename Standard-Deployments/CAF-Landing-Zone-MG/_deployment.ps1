@@ -4,6 +4,8 @@ $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -Uri https://aka.ms/
 
 New-AzRoleAssignment -SignInName "lv@lvolk.com" -Scope "/" -RoleDefinitionName "Owner"
 
+#Choose MAG
+Connect-AzAccount -EnvironmentName AzureUSGovernment
 # authenticate to the portal
 Add-AzAccount
 #Select the correct subscription
