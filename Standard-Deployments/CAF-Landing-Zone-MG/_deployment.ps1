@@ -13,7 +13,9 @@ Add-AzAccount
 #Select the correct subscription
 Get-AzSubscription -SubscriptionName "MSDN-SUB" | Select-AzSubscription
 
-# For Azure global regions
+# to list the regions
+# az account list-locations --query "sort_by([].{Location:name}, &Location)" -o table
+
 cd C:\Bicep\Azure-IAC-Bicep\Standard-Deployments\CAF-Landing-Zone-MG\
 dir
 New-AzTenantDeployment -TemplateFile .\caf-mg-deploy.bicep -TemplateParameterFile .\volk_parameters.json -Location eastus2
