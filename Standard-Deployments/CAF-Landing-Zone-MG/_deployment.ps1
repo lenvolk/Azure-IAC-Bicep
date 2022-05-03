@@ -4,14 +4,14 @@ $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -Uri https://aka.ms/
 
 # from AAD properties make sure "Access management for Azure resources" is set to yes
 
-New-AzRoleAssignment -SignInName "lv@lvolk.com" -Scope "/" -RoleDefinitionName "Owner"
+New-AzRoleAssignment -SignInName "lv@thevolk.xyz" -Scope "/" -RoleDefinitionName "Owner"
 
 #Choose MAG
 Connect-AzAccount -EnvironmentName AzureUSGovernment
 # authenticate to the portal
 Add-AzAccount
 #Select the correct subscription
-Get-AzSubscription -SubscriptionName "MSDN-SUB" | Select-AzSubscription
+Get-AzSubscription -SubscriptionName "labsub" | Select-AzSubscription
 
 # to list the regions
 # az account list-locations --query "sort_by([].{Location:name}, &Location)" -o table
@@ -51,6 +51,6 @@ function remove-recursively($name) {
   Remove-AzManagementGroup -InputObject $parent
 }
 
-remove-recursively -name 'volk-sandbox'
+remove-recursively -name 'lvmyorg'  # type MG Grp ID
 
 disconnect-azaccount 
