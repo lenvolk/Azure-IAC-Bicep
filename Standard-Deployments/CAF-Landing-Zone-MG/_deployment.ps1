@@ -13,7 +13,7 @@ Add-AzAccount
 #Select the correct subscription
 Get-AzSubscription -SubscriptionName "labsub" | Select-AzSubscription
 
-cd C:\Bicep\Azure-IAC-Bicep\Standard-Deployments\CAF-Landing-Zone-MG\
+cd C:\GIT\Azure-IAC-Bicep\Standard-Deployments\CAF-Landing-Zone-MG\
 dir
 
 # to list the regions
